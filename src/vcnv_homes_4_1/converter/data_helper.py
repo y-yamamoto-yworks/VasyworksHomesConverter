@@ -4,8 +4,10 @@ Project Name: vcnv_homes
 Encoding: UTF-8
 Copyright (C) 2021 Yasuhiro Yamamoto
 """
+import os
 import math
 from pyproj import Transformer
+from urllib import request
 from lib.convert import *
 from common.system_info import SystemInfo
 from .code_manager import CodeManager
@@ -72,3 +74,38 @@ class DataHelper:
         ms = int(y)
 
         return "{0}.{1}.{2}.{3}".format(d, m, s, ms)
+
+    """
+    ファイルのダウンロード
+    """
+    @classmethod
+    def download_image(cls, url, image_dir, image_log_dir):
+        """  ファイルのダウンロード """
+        file_name = DataHelper.get_url_filename(url)
+        image_log_path = os.path.join(image_log_dir, file_name)
+
+        if not os.path.exists(image_log_path):
+            # 過去に送信した履歴がない場合
+            file = None
+            try:
+                image = request.urlopen(url).read()
+                image_path = os.path.join(image_dir, file_name)
+
+                if not os.path.exists(image_path):
+                    # 送信対象ディレクトリにファイルがない場合
+                    file = open(image_path, mode='wb')
+                    file.write(image)
+                    file.close()
+
+                file = open(image_log_path, mode='wb')
+                file.write(image)
+                file.close()
+
+                del image
+
+            except:
+                if file:
+                    if not file.closed:
+                        file.close()
+
+        return

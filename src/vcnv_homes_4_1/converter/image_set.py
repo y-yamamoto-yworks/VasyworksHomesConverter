@@ -4,9 +4,7 @@ Project Name: vcnv_homes
 Encoding: UTF-8
 Copyright (C) 2021 Yasuhiro Yamamoto
 """
-import os
 import datetime
-from urllib import request
 from lib.convert import *
 from common.app_object import AppObject
 from common.system_info import SystemInfo
@@ -79,7 +77,11 @@ class ImageSet(AppObject):
             self.room_image_count += 1
 
         if ans:
-            self.__download(ans[SystemInfo.get_instance().download_image_url])
+            DataHelper.download_image(
+                ans[SystemInfo.get_instance().download_image_url],
+                SystemInfo.get_instance().image_dir,
+                SystemInfo.get_instance().image_log_dir,
+            )
 
         return ans
 
@@ -94,43 +96,4 @@ class ImageSet(AppObject):
             # 部屋画像の優先数の設定が0より大きく、取得数が優先数を以上になっている場合
             ans = True
 
-        return ans
-
-    @classmethod
-    def __download(cls, url):
-        """  ファイルのダウンロード（内部メソッド） """
-        file_name = DataHelper.get_url_filename(url)
-        image_log_path = os.path.join(SystemInfo.get_instance().image_log_dir, file_name)
-
-        if not os.path.exists(image_log_path):
-            # 過去に送信した履歴がない場合
-            try:
-                image = request.urlopen(url).read()
-                image_path = os.path.join(SystemInfo.get_instance().image_dir, file_name)
-
-                if not os.path.exists(image_path):
-                    # 送信対象ディレクトリにファイルがない場合
-                    file = open(image_path, mode='wb')
-                    file.write(image)
-                    file.close()
-
-                file = open(image_log_path, mode='wb')
-                file.write(image)
-                file.close()
-
-                del image
-
-            except:
-                # エラーファイルをログに出力
-                # 未着手
-                pass
-
-        return
-
-    @classmethod
-    def get_file_url(cls, image):
-        """ ダウンロード対象画像のURLを取得 """
-        ans = None
-        if image:
-            ans = image['medium_file_url']
         return ans
