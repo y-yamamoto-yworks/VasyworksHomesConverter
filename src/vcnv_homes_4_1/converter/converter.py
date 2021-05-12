@@ -143,7 +143,7 @@ class Converter(AppObject):
         ans += ',"{0}"'.format('')  # 画像ファイルパス
         ans += ',"{0}"'.format('0')  # 路線設定パターン
         ans += ',"{0}"'.format('0')  # 書換モード
-        ans += ',"{0}"'.format('0')  # テストモード
+        ans += ',"{0}"'.format(SystemInfo.get_instance().test_mode)  # テストモード
 
         ans += '\n'
         return ans

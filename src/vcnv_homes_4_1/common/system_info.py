@@ -32,6 +32,7 @@ class SystemInfo:
 
         self.csv_version = config_ini.get('Homes', 'Csv_version')
         self.homes_id = config_ini.get('Homes', 'Homes_id')
+        self.test_mode = config_ini.get('Homes', 'Test_mode')
         self.trader_company = config_ini.get('Homes', 'Trader_company')
         self.trader_company_tel = config_ini.get('Homes', 'Trader_company_tel')
 
