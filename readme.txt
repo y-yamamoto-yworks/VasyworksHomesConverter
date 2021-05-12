@@ -6,6 +6,7 @@ VasyworksはVasyworksDB（データベース構築プロジェクト）、Vasywo
 2.Vasyworks Homesコンバータについて
 Vasyworks HomesコンバータはVasyworksAPIのデータ連携用APIを用いて、不動産ポータルサイトのHome'sに一括入稿するためのデータを生成するためのコンバータです。
 ・vcnv_homes_4_1はCSVバージョン4.1.3に対応しています。
+・vcnv_homes_4_2はCSVバージョン4.2.5に対応しています。
 
 3.Vasyworks Homesコンバータのライセンスについて
 Vasywork Homesコンバータのソースコードは山本 泰弘の著作物として、GLPv3のライセンス条件の下で利用できます。GPLv3の条件での利用ができない場合は、商用ライセンス版が必要となります。商用ライセンス版を利用する場合は、1賃貸管理業者（法人および個人）につき1ライセンスが必要となります。
@@ -19,7 +20,7 @@ Python3の使えるWindowシステムOS環境でご利用ください。（Windo
 
 5. インストールと実行について
 1) Python3.7をインストールし、pipコマンドでpyprojとpython-dateutilをインストールしてください。
-2) vcnv_homes_4_1のソースコード一式を適切なディレクトリ（フォルダ）に配置し、config.iniの設定を適切に変更してください。
+2) vcnv_homes_4_1もしくはvcnv_homes_4_2のソースコード一式を適切なディレクトリ（フォルダ）に配置し、config.iniの設定を適切に変更してください。
 3) main.pyを実行してください。
 
 
