@@ -127,7 +127,13 @@ class Converter(AppObject):
         sent_file = None
 
         try:
+            # 物件CSVデータ用
             file_path = os.path.join(SystemInfo.get_instance().output_dir, 'sent')
+            sent_file = open(file=file_path, mode='w', encoding='shift_jis',)
+            sent_file.close()   # 何も出力しない。
+
+            # パノラマ用
+            file_path = os.path.join(SystemInfo.get_instance().panorama_output_dir, 'sent')
             sent_file = open(file=file_path, mode='w', encoding='shift_jis',)
             sent_file.close()   # 何も出力しない。
 
