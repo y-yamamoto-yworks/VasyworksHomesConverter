@@ -14,8 +14,8 @@ Vasywork Homesコンバータのソースコードは山本 泰弘の著作物�
 4.動作環境について
 Python3の使えるWindowシステムOS環境でご利用ください。（Windowns10とMacOS11は動作確認済み）
 開発環境は下記の通りです。
-・Python 3.7
-・pyproj 3.0.1
+・Python 3.8
+・pyproj 3.1.0
 ・python-dateutil 2.8.1
 
 5. インストールと実行について
