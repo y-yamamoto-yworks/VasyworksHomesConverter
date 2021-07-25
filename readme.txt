@@ -19,7 +19,7 @@ Python3の使えるWindowシステムOS環境でご利用ください。（Windo
 ・python-dateutil 2.8.1
 
 5. インストールと実行について
-1) Python3.7をインストールし、pipコマンドでpyprojとpython-dateutilをインストールしてください。
+1) Python3.8をインストールし、pipコマンドでpyprojとpython-dateutilをインストールしてください。
 2) vcnv_homes_4_1もしくはvcnv_homes_4_2のソースコード一式を適切なディレクトリ（フォルダ）に配置し、config.iniの設定を適切に変更してください。
 3) main.pyを実行してください。
 
